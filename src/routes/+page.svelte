@@ -1,6 +1,13 @@
-<script>
-    /** @type {import('./$types').PageData} */
-    export let data;
+<script lang="ts">
+	import { page } from '$app/stores';
+	import { getToday } from '$lib/util/date';
+	import { getContext, hasContext, setContext } from 'svelte';
+	import type { PageData } from './$types';
+	import Calendar from './components/Calendar.svelte';
+
+	const dateQuery = $page.url.searchParams.get('date');
+
+	const date: String = dateQuery ? (dateQuery as String) : getToday();
 </script>
-<h1>{data.hello} to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+
+<Calendar {date} />
