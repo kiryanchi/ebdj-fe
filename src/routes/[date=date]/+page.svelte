@@ -1,8 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { Card, Col, Container, Row } from 'sveltestrap/src';
-	import { getContext } from 'svelte';
-	import { getToday } from '$lib/util/date';
 
 	export let data: PageData;
 </script>
