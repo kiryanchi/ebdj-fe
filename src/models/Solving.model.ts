@@ -1,10 +1,10 @@
 import type { User } from './User.model';
 
 export interface Solving {
-	id: Number;
+	id: number;
 	user: User;
-	date: String;
-	difficulty: String;
-	title: String;
-	url: String;
+	date: string;
+	difficulty: string;
+	title: string;
+	url: string;
 }

@@ -1,5 +1,5 @@
 export interface User {
-	id: Number;
-	githubName: String;
-	name: String;
+	id: number;
+	githubName: string;
+	name: string;
 }
