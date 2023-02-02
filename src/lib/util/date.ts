@@ -1,30 +1,26 @@
+import { match as isDate } from '../../params/date';
+
 export function getToday() {
 	const today = new Date();
 	const year = today.getFullYear();
 	const month = String(today.getMonth() + 1).padStart(2, '0');
 	const date = String(today.getDate()).padStart(2, '0');
 
-	return new DDate(year, Number(month), Number(date));
+	return new DDate(`${year}-${month}-${date}`);
 	// return `${year}-${month}-${date}`;
 }
 
 export class DDate extends Date {
-	year: number;
-	month: number;
-	date: number;
+	constructor(dateString: string) {
+		if (!isDate(dateString)) throw '올바른 date 형식이 아닙니다.';
 
-	constructor(year: number, month: number, date: number) {
-		super(year, month, date);
-
-		this.year = year;
-		this.month = month;
-		this.date = date;
+		const [year, month, date] = dateString.split('-');
+		super(Number(year), Number(month), Number(date));
 	}
-
-	toString(): string {
-		return `${this.year}-${String(this.month).padStart(2, '0')}-${String(this.date).padStart(
-			2,
-			'0'
-		)}`;
-	}
+	toString = (): string => {
+		const year = this.getFullYear();
+		const month = String(this.getMonth()).padStart(2, '0');
+		const date = String(this.getDate()).padStart(2, '0');
+		return `${year}-${month}-${date}`;
+	};
 }
