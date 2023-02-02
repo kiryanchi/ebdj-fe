@@ -5,7 +5,7 @@
 	export let data: PageData;
 </script>
 
-<div class="w-[50%] ml-[21%]">
+<div class="">
 	<div class="flex justify-between w-[50%] text-4xl ml-[25%] mb-4">
 		<p>◁</p>
 		<p class="font-bold underline">{data.date}</p>

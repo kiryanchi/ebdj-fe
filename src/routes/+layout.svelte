@@ -27,4 +27,6 @@
 	</nav>
 </header>
 
-<slot />
+<div class="w-[50%] ml-[21%]">
+	<slot />
+</div>
